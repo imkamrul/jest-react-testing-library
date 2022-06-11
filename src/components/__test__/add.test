@@ -1,0 +1,18 @@
+const puppeteer = require("puppeteer");
+
+test("checking end to end puppeteer", async () => {
+  const browser = await puppeteer.launch({
+    headless: false,
+    slowMo: 100,
+    args: ["--start-fullscreen"],
+  });
+  const page = await browser.newPage();
+  await page.goto("http://localhost:3000/");
+  await page.click("input#user_name");
+  await page.type("input#user_name", "kamrul", { delay: 100 });
+  await page.click("input#submit");
+  await page.type("input#user_name", "kamrul", { delay: 100 });
+  await page.click("input#submit");
+
+  // await browser.close();
+}, 16000);

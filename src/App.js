@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Todo from "./components/todo";
+import Add from "./components/Add";
+import Count from "./components/Count";
 
 function App() {
+  const Todos = [
+    {
+      id: 0,
+      title: "C++",
+      completed: false,
+    },
+    {
+      id: 1,
+      title: "Python",
+      completed: false,
+    },
+    {
+      id: 2,
+      title: "Javascript",
+      completed: true,
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p className="text-2xl text-gray-600">Jest Testing with react</p>
+          <p className="text-3xl font-bold" data-testid="prog-lang">
+            Programming Language
+          </p>
+          {Todos.map((item, index) => {
+            return <Todo key={index} content={item} />;
+          })}
+          <Count />
+          {/*    <Add /> */}
+        </header>
+      </div>
+    </section>
   );
 }
 

@@ -1,0 +1,10 @@
+import sum from "./sum";
+
+test("Sum func testing", () => {
+  const result = sum(1, 2);
+  expect(result).toBe(3);
+});
+test("Sum func testing with string", () => {
+  const result = sum("1", "2");
+  expect(result).toEqual(3);
+});
